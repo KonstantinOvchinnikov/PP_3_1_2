@@ -11,15 +11,14 @@ import web.PP_3_1_2.service.UserService;
 @RequestMapping("/users")
 public class UserController {
 
-    UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
+
         this.userService = userService;
     }
 
-    public UserController() {
-    }
 
     @GetMapping()
     public String index(Model model, @RequestParam(value = "id", defaultValue = "0") int id) {
